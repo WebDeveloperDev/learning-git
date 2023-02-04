@@ -1,0 +1,59 @@
+import pickle
+
+def appendData():
+    file=open('shoes.dat','ab')
+    st=[]
+    while(True):
+        
+        s_id=int(input("Enter Shoes ID:-"))
+        sname=input("Enter Name of Shoes:-")
+        brand=input("Enter Brand of Shoes:-")
+        type1=input("Enter Type of Shoes:-")
+        price=int(input("Enter Shoes Price:-"))
+        data=[s_id, sname, brand, type1, price]
+        st.append(data)
+        ch=input("Do you want to Add More Records:(y/n)")
+        if(ch=='n'):
+            break
+    pickle.dump(st,file)
+    file.close()
+    
+def readData():
+    file = open("shoes.dat",'rb')
+    data=' '
+    try:
+        while(data):
+            data = pickle.load(file)
+            for i in data:
+                print(i)
+    except:
+        print("Reached End of File")
+    
+    file.close()      
+    
+
+def searchData():
+    file = open("shoes.dat",'rb')
+    data=' '
+    find=int(input("Enter Shoes ID to Search:"))
+    final=0
+    try:
+        data = pickle.load(file)
+        for i in data:
+            if(i[0]==find):
+                print("Name of Name of Shoes:-",i[1])
+                print("Brand of Shoes:-",i[2])
+                print("Enter Type of Shoes:-",i[3])
+                print("Shoes Price:-",i[4])
+                final=1
+                break
+        if(final==0):
+            print("Record not Found")
+                       
+    except:
+        print("Reached End of File")
+    
+    file.close()      
+
+ 
+

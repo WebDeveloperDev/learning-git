@@ -1,0 +1,28 @@
+import pickle
+from opbinary import *
+print("###Program to perform Operations on Binary File:###")
+while(True):
+    print("1. Append Data in Binary File")
+    print("2. Read Data from Binary File")
+    print("3. Search Data in Binary File")
+    ch=int(input("Enter your Choice:="))
+    if(ch==1):
+        appendData()
+        ch1=input("Do you want to Continue(y/n)")
+        if(ch1=='n'):
+            break
+    elif(ch==2):
+        readData()
+        ch1=input("Do you want to Continue(y/n)")
+        if(ch1=='n'):
+            break
+    elif(ch==3):
+        searchData()
+        ch1=input("Do you want to Continue(y/n)")
+        if(ch1=='n'):
+            break
+    else:
+        print("Invalid Choice")
+        ch1=input("Do you want to Continue(y/n)")
+        if(ch1=='n'):
+            break
